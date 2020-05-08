@@ -1,5 +1,7 @@
 # C++
-### Command to run Program:
+
+## Command to run Program
+
 * On a windows environment
   * make run_windows
 * On a Linux environment
