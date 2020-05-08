@@ -1,4 +1,4 @@
-# C++
+# C++ (No GUI)
 
 ## Command to run program
 
