@@ -1,28 +1,25 @@
 # Variables
 CC=g++
 CFLAGS = -c -Wall
-all: main
 
-main: main.o towerPole.o poleNode.o tower.o
-	$(CC) main.o towerPole.o poleNode.o tower.o -o main
+SRCS := $(wildcard *.cpp)
+BINS := $(SRCS:.cpp=.o)
+OUT := main
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
-towerPole.o: towerPole.cpp
-	$(CC) $(CFLAGS) towerPole.cpp
-poleNode.o: poleNode.cpp
-	$(CC) $(CFLAGS) poleNode.cpp
-tower.o : tower.cpp
-	$(CC) $(CFLAGS) tower.cpp
+.PHONY = ${OUT} clean
 
-clean_windows:
-	del *.o main.exe
+${OUT} : ${BINS}
+	${CC} ${BINS} -o ${OUT}
+
+%: %.o
+	${CC} ${CFLAGS} $< -o $@
+
+%.o: %.cpp
+	${CC} -c $<
+
+run:
+	make
+	./${OUT}
 
 clean:
 	rm *.o main
-
-run_windows:
-	make && .\main.exe
-
-run:
-	make && ./main
