@@ -1,6 +1,7 @@
 from Tower import Tower
 
-if __name__ == '__main__':
+
+def main():
     pole_counter = None
     disk_counter = None
 
@@ -39,3 +40,7 @@ if __name__ == '__main__':
     tower.play_game()
 
     tower.game_finished()
+
+
+if __name__ == '__main__':
+    main()

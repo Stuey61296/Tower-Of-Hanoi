@@ -55,17 +55,17 @@ class Tower:
                 pole_move_from = input("Which pole would you like to move the top disk from (A - " +
                                        self.poles[-1].get_pole_name() + ")? ").upper()
                 if pole_move_from not in self.pole_names:
-                    print(f"{Fore.RED}Invalid Pole ({pole_move_from}) Selected!\n{Style.RESET_ALL}")
+                    print("{}Invalid Pole ({}) Selected!\n{}".format(Fore.RED, pole_move_from, Style.RESET_ALL))
 
             while pole_move_to not in self.pole_names:
                 pole_move_to = input("Which pole would you like to move the top disk to (A - " +
                                      self.poles[-1].get_pole_name() + ")? ").upper()
                 if pole_move_to not in self.pole_names:
-                    print(f"{Fore.RED}Invalid Pole ({pole_move_to}) Selected!\n{Style.RESET_ALL}")
+                    print("{}Invalid Pole ({}) Selected!\n{}".format(Fore.RED, pole_move_from, Style.RESET_ALL))
 
             if not self.poles[self.pole_names.index(pole_move_from.upper())].reallocate_pole(
                     self.poles[self.pole_names.index(pole_move_to.upper())]):
-                print(f"{Fore.RED}Invalid move!\n{Style.RESET_ALL}")
+                print("{}Invalid move!\n{}".format(Fore.RED, Style.RESET_ALL))
                 self.print_tower()
                 continue
             self.move_count += 1
